@@ -30,18 +30,6 @@ import type {
   VotingAttemptResult,
 } from "@/types/vote-attempts";
 
-// type PollingUnit = {
-//   id: string;
-//   name: string;
-//   ward?: string | null;
-// };
-
-// type Device = {
-//   id: string;
-//   name: string;
-//   status?: string | null;
-// };
-
 export function RecordVotingAttempt({
   initialVoterCardId = "",
   initialPollingUnitId = "",
