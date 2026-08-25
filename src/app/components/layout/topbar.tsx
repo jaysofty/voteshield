@@ -3,7 +3,11 @@
 import Link from "next/link";
 import {
   Bell,
+  CreditCard,
+  LayoutDashboard,
   Menu,
+  Search,
+  ShieldAlert,
   ShieldCheck,
 } from "lucide-react";
 
@@ -20,14 +24,22 @@ const navigation = [
   {
     label: "Overview",
     href: "/dashboard",
+    icon: LayoutDashboard,
+  },
+    {
+    label: "Voter cards",
+    href: "/voters",
+    icon: CreditCard,
   },
   {
     label: "Alerts",
     href: "/alerts",
+    icon: ShieldAlert,
   },
   {
     label: "Investigate",
     href: "/investigate",
+    icon: Search,
   },
 ];
 
