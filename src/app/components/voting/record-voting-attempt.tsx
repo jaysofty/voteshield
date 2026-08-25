@@ -35,9 +35,9 @@ export function RecordVotingAttempt({
   initialPollingUnitId = "",
 }: RecordVotingAttemptProps) {
   /*
-   * ---------------------------------------------------------
-   * Form state
-   * ---------------------------------------------------------
+    ---------------------------------------------------------
+    Form state
+    ---------------------------------------------------------
    */
 
   const [voterCardId, setVoterCardId] =
@@ -52,9 +52,9 @@ export function RecordVotingAttempt({
     useState<VotingAttemptResult | null>(null);
 
   /*
-   * ---------------------------------------------------------
-   * Voting options
-   * ---------------------------------------------------------
+    ---------------------------------------------------------
+    Voting options
+    ---------------------------------------------------------
    */
 
   const [pollingUnits, setPollingUnits] =
@@ -70,21 +70,21 @@ export function RecordVotingAttempt({
     useState<string | null>(null);
 
   /*
-   * ---------------------------------------------------------
-   * Mutation
-   * ---------------------------------------------------------
+    ---------------------------------------------------------
+    Mutation
+    ---------------------------------------------------------
    */
 
   const { createAttempt, creating } =
     useCreateVotingAttempt();
 
   /*
-   * ---------------------------------------------------------
-   * Load polling units + devices
-   *
-   * This effect is correct because it synchronizes the
-   * component with the external API/database.
-   * ---------------------------------------------------------
+    ---------------------------------------------------------
+    Load polling units + devices
+   
+    This effect is correct because it synchronizes the
+    component with the external API/database.
+    ---------------------------------------------------------
    */
 
   useEffect(() => {

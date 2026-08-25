@@ -1,8 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { StatCardProps } from "@/types/dashboard-types";
 
-
-
 export function StatCard({
   label,
   value,

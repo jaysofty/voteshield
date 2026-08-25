@@ -45,14 +45,11 @@ export default function InvestigateClient() {
     useState<AlertStatus | null>(null);
 
   /*
-   * Automatically investigate when arriving from:
-   *
-   * /investigate?attemptId=VA-003
-   *
-   * IMPORTANT:
-   * We intentionally do not call setState() here.
-   *
-   * The URL is the source of truth for the initial attempt.
+    Automatically investigate when arriving from:
+   
+    /investigate?attemptId=VA-003
+   
+    The URL is the source of truth for the initial attempt.
    */
   useEffect(() => {
     if (!initialAttempt) {
@@ -63,8 +60,8 @@ export default function InvestigateClient() {
   }, [initialAttempt, investigate]);
 
   /*
-   * The locally updated status takes priority over
-   * the status returned by the API.
+    The locally updated status takes priority over
+    the status returned by the API.
    */
   const currentAlertStatus =
     alertStatus ?? investigation?.alert?.status ?? null;
@@ -90,7 +87,7 @@ export default function InvestigateClient() {
   };
 
   /*
-   * OPEN → INVESTIGATING
+    OPEN INVESTIGATING
    */
   const handleStartInvestigation = async () => {
     if (!investigation?.alert) {
@@ -110,7 +107,7 @@ export default function InvestigateClient() {
   };
 
   /*
-   * INVESTIGATING → RESOLVED
+    INVESTIGATING -- RESOLVED
    */
   const handleResolveInvestigation = async () => {
     if (!investigation?.alert) {

@@ -14,19 +14,8 @@ import {
 } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { RecordVotingAttempt } from "@/app/components/voting/record-voting-attempt";
+import { Voter } from "@/types/voters";
 
-
-type Voter = {
-  voterId: string;
-  voterName: string;
-  voterStatus: string;
-  voterCardId: string;
-  voterCardStatus: string;
-  pollingUnitId: string | null;
-  pollingUnitName: string | null;
-  pollingUnitWard: string | null;
-  votingAttempts: number;
-};
 
 export default function RecordVotePage({
   params,

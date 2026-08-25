@@ -11,12 +11,15 @@ export type DashboardStats = {
 export type VotingAttempt = {
   id: string;
   status: string;
-  timestamp: string;
   voterName: string;
   voterCardId: string;
   pollingUnit: string;
-  deviceId: string;
 };
+
+export type RecentVotingActivityProps = {
+  attempts: VotingAttempt[];
+  loading: boolean;
+}
 
 export type Alert = {
   id: string;

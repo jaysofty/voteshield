@@ -12,19 +12,9 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
+import { RecentVotingActivityProps, VotingAttempt } from "@/types/voteshield";
 
-type VotingAttempt = {
-  id: string;
-  status: string;
-  voterName: string;
-  voterCardId: string;
-  pollingUnit: string;
-};
 
-interface RecentVotingActivityProps {
-  attempts: VotingAttempt[];
-  loading: boolean;
-}
 
 export function RecentVotingActivity({
   attempts,
