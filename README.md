@@ -12,15 +12,6 @@ The system records voting activity and automatically evaluates relationships in 
 * Repeated activity that requires investigation
 
 The application provides a monitoring dashboard where election administrators can review activity, inspect alerts, and investigate suspicious voting relationships.
-
----
-
-## Demo
-
-**Hosted application:** `TODO: ADD VERCEL URL`
-
-**Screen recording:** `TODO: ADD VIDEO URL`
-
 ---
 
 ## Features
