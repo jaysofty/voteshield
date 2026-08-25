@@ -1,0 +1,56 @@
+INSTALLED-PACKAGES
+
+** GRAPH driver **
+npm install neo4j-driver
+
+** initialize shadcn UI library **
+npx shadcn@latest init
+
+** add shadcn UI components **
+npx shadcn@latest add button card badge avatar separator skeleton input progress dropdown-menu tooltip sheet
+
+** TanStack Query for server state managment & Mutation **
+npm install @tanstack/react-query
+
+
+** lucid react for icons **
+npm install lucide-react
+
+** install tsx to execute typescript scripts **
+npm install -D tsx
+
+** install dotenv to load env variables **
+npm install dotenv
+
+** run the seed **
+npm run db:seed
+
+Route
+Handles HTTP:
+
+Query
+Contains Cypher:
+MATCH..
+
+Driver
+Handles CognoDB:
+neo4j-driver
+
+---------------------------------
+
+Milestone — Foundation ✅
+✅ Dashboard
+✅ Voting activity monitoring
+✅ Graph-based suspicious activity detection
+✅ Duplicate card detection
+✅ Unusual device detection
+✅ Alert management
+✅ Investigation workflow
+✅ OPEN → INVESTIGATING → RESOLVED
+✅ Resolved alerts reflected on dashboard
+✅ Reusable loading / empty / error states
+✅ Root 404 page
+✅ TypeScript clean
+✅ ESLint clean
+✅ Production build clean
+✅ 11 routes successfully generated

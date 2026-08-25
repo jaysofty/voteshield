@@ -1,0 +1,74 @@
+name: VoteShield CI/CD
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+
+  pull_request:
+    branches:
+      - main
+      - develop
+
+jobs:
+  quality:
+    name: Code Quality
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: TypeScript check
+        run: npx tsc --noEmit
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Build
+        env:
+          COGNODB_URI: ${{ secrets.COGNODB_URI }}
+          COGNODB_USERNAME: ${{ secrets.COGNODB_USERNAME }}
+          COGNODB_PASSWORD: ${{ secrets.COGNODB_PASSWORD }}
+        run: npm run build
+
+  docker:
+    name: Docker Build
+    runs-on: ubuntu-latest
+    needs: quality
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Build Docker image
+        run: |
+          docker build \
+            --build-arg COGNODB_URI="${{ secrets.COGNODB_URI }}" \
+            --build-arg COGNODB_USERNAME="${{ secrets.COGNODB_USERNAME }}" \
+            --build-arg COGNODB_PASSWORD="${{ secrets.COGNODB_PASSWORD }}" \
+            -t ${{ secrets.DOCKERHUB_USERNAME }}/voteshield:${{ github.sha }} \
+            -t ${{ secrets.DOCKERHUB_USERNAME }}/voteshield:latest \
+            .
+
+      - name: Push Docker image
+        run: |
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/voteshield:${{ github.sha }}
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/voteshield:latest
+

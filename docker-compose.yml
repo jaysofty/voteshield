@@ -1,0 +1,22 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        COGNODB_URI: ${COGNODB_URI}
+        COGNODB_USERNAME: ${COGNODB_USERNAME}
+        COGNODB_PASSWORD: ${COGNODB_PASSWORD}
+
+    container_name: voteshield-app
+
+    ports:
+      - "3000:3000"
+
+    environment:
+      NODE_ENV: production
+      COGNODB_URI: ${COGNODB_URI}
+      COGNODB_USERNAME: ${COGNODB_USERNAME}
+      COGNODB_PASSWORD: ${COGNODB_PASSWORD}
+
+    restart: unless-stopped
